@@ -438,9 +438,6 @@
 
         function addEmployee() {
             var name = $('.add_epmployee #name_input').val();
-
-          
-       
             var email = $('.add_epmployee #email_input').val();
             var phone = $('.add_epmployee #phone_input').val();
             var address = $('.add_epmployee #address_input').val();
@@ -491,7 +488,7 @@
             })
         }
 
-        function viewEmployee(id = 2) {
+        function viewEmployee(id = $id) {
             $.ajax({
                 type: 'get',
                 data: {
@@ -515,6 +512,7 @@
 
         function deleteEmployee() {
             var id = $('#delete_id').val();
+           // console.log(id);
             $('#deleteEmployeeModal').modal('hide');
             $.ajax({
                 type: 'get',
@@ -523,11 +521,14 @@
                 },
                 url: "{{ url('employee-delete') }}",
                 success: function(response) {
+                    console.log(response);
                     employeeList();
-                    alert(response.message);
+                    //alert(response.message);
                 }
             })
         }
+
+       // function editEmployeeModal()
     </script>
 
 </body>

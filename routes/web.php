@@ -17,7 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('employee');
 });
-
+//list
 Route::get('employee-list', [EmployeeController::class, 'employee_list']);
 
+//view and editview
+Route::get('employee-view', [EmployeeController::class, 'employee_view']);
+
+//add
 Route::post('/employee-add', [EmployeeController::class, 'employeeAdd'])->name('employee-add');
+
+Route::get('employee-delete', [EmployeeController::class, 'employee_delete']);
+
+//edit and update
+Route::post('employee-edit', [EmployeeController::class, 'employee_edit']);
